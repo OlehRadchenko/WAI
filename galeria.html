@@ -108,28 +108,6 @@
         </p>
     </footer>
 
-    <script>
-        const imageMaxBlock = document.getElementById("imageMaxiBlock");
-        const maxiImg = document.getElementById("maxiImg");
-        const captionText = document.getElementById("caption");
-        const closeBtn = document.querySelector(".close");
-
-        document.querySelectorAll(".mini").forEach(img => {
-            img.addEventListener("click", () => {
-            imageMaxBlock.style.display = "block";
-            maxiImg.src = img.src.replace("_mini", "");
-            captionText.textContent = img.alt;
-            maxiImg.alt = img.alt;
-            });
-        });
-
-        closeBtn.addEventListener("click", () => {
-            imageMaxBlock.style.display = "none";
-        });
-
-        imageMaxBlock.addEventListener("click", (e) => {
-            if (e.target === imageMaxBlock) imageMaxBlock.style.display = "none";
-        });
-    </script>
+    <script type="module" src="./dist/main.js"></script>
 </body>
 </html>
