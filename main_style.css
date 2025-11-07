@@ -1,0 +1,60 @@
+table {
+    width: 100%;
+    margin: 2vh auto;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: clamp(10px, 1.5vw, 20px);
+}
+
+table th, table td {
+    border: 1px solid #5aa3e8;
+    padding: 0.8vh 1vw;
+}
+
+table th {
+    background-color: #b8dfff;
+}
+
+table tr:nth-child(even) {
+    background-color: #eef9ff;
+}
+
+#ochronaRyb {
+    width: 90vw;
+    margin: auto;
+    font-family: 'Segoe UI', sans-serif;
+    color: #222;
+    line-height: 1.6;
+}
+
+#spisTresci {
+    background-color: #e9f5ff;
+    border: 1px solid #b6e0ff;
+    padding: 1.5vh 2vw;
+    border-radius: 10px;
+    margin-bottom: 3vh;
+}
+
+#spisTresci ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#spisTresci li {
+    margin: 0.8vh 0;
+}
+
+#spisTresci a {
+    text-decoration: none;
+    color: #0074c7;
+    transition: color 0.2s ease;
+}
+
+#spisTresci a:hover,
+#ochronaRyb h2 {
+    color: #005b99;
+}
+
+#ochronaRyb h2 {
+    margin-top: 4vh;
+}

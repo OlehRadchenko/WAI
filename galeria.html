@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="galery_style.css">
+    <title>GALERIA</title>
+</head>
+<body>
+    <header class="flexCenter">
+        <a class="flexCenter links" href="index.html">
+            <svg id="logoSVG" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;">
+                <ellipse cx="100" cy="50" rx="60" ry="30" fill="lightblue" stroke="navy" stroke-width="2"/>
+                <polygon points="160,20 200,50 160,80" fill="lightblue" stroke="navy" stroke-width="2"/>
+                <circle cx="60" cy="45" r="5" fill="white" stroke="black" stroke-width="1"/>
+                <circle cx="60" cy="45" r="2" fill="black"/>
+            </svg>
+            <span id="logo">WĘDKARTSWO Z PASJĄ</span>
+        </a>
+    </header>
+    <nav class="flexCenter">
+        <a class="navLinks links" href="index.html">
+            <p class="navButton flexCenter">
+                Strona główna
+            </p>
+        </a>
+        <a class="navLinks links" href="polowy.html">
+            <p class="navButton flexCenter">
+                Moje połowy
+            </p>
+        </a>
+        <a class="navLinks links" href="ankieta.html">
+            <p class="navButton flexCenter">
+                Ankieta
+            </p>
+        </a>
+        <div id="galeriaButton" class="navLinks">
+            <a class="navButton flexCenter links actualPage" href="galeria.html">
+                Galeria
+            </a>
+            <ul class="dropdown-content">
+                <li><a class="dropdownLink smallNavButton" href="galeria.html#zlowione_ryby">Złowione ryby</a></li>
+                <li><a class="dropdownLink smallNavButton" href="galeria.html#moje_wedki">Moje wędki</a></li>
+                <li><a class="dropdownLink smallNavButton" href="galeria.html#wyprawy">Wyprawy</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <section id="zlowione_ryby">
+            <h2 class="title">Galeria ryb</h2>
+            <div class="gallery">
+                <div class="img_wrapper"><img src="img/ryba1_mini.jpg" class="mini" alt="Ryba 1"></div>
+                <div class="img_wrapper"><img src="img/ryba2_mini.jpg" class="mini" alt="Ryba 2"></div>
+                <div class="img_wrapper"><img src="img/ryba3_mini.jpg" class="mini" alt="Ryba 3"></div>
+                <div class="img_wrapper"><img src="img/ryba4_mini.jpg" class="mini" alt="Ryba 4"></div>
+                <div class="img_wrapper"><img src="img/ryba5_mini.jpg" class="mini" alt="Ryba 5"></div>
+                <div class="img_wrapper"><img src="img/ryba6_mini.jpg" class="mini" alt="Ryba 6"></div>
+                <div class="img_wrapper"><img src="img/ryba7_mini.jpg" class="mini" alt="Ryba 7"></div>
+                <div class="img_wrapper"><img src="img/ryba8_mini.jpg" class="mini" alt="Ryba 8"></div>
+                <div class="img_wrapper"><img src="img/ryba9_mini.jpg" class="mini" alt="Ryba 9"></div>
+                <div class="img_wrapper"><img src="img/ryba10_mini.jpg" class="mini" alt="Ryba 10"></div>
+                <div class="img_wrapper"><img src="img/ryba11_mini.jpg" class="mini" alt="Ryba 11"></div>
+                <div class="img_wrapper"><img src="img/ryba12_mini.jpg" class="mini" alt="Ryba 12"></div>
+                <div class="img_wrapper"><img src="img/ryba13_mini.jpg" class="mini" alt="Ryba 13"></div>
+                <div class="img_wrapper"><img src="img/ryba14_mini.jpg" class="mini" alt="Ryba 14"></div>
+                <div class="img_wrapper"><img src="img/ryba15_mini.jpg" class="mini" alt="Ryba 15"></div>
+                <div class="img_wrapper"><img src="img/ryba16_mini.jpg" class="mini" alt="Ryba 16"></div>
+                <div class="img_wrapper"><img src="img/ryba17_mini.jpg" class="mini" alt="Ryba 17"></div>
+                <div class="img_wrapper"><img src="img/ryba18_mini.jpg" class="mini" alt="Ryba 18"></div>
+                <div class="img_wrapper"><img src="img/ryba19_mini.jpg" class="mini" alt="Ryba 19"></div>
+            </div>
+        </section>
+        
+        <section id="moje_wedki">
+            <h2 class="title">Galeria wędek</h2>
+            <div class="gallery">
+                <div class="img_wrapper"><img src="img/wedka1_mini.jpg" class="mini" alt="Wędka 1"></div>
+                <div class="img_wrapper"><img src="img/wedka2_mini.jpg" class="mini" alt="Wędka 2"></div>
+                <div class="img_wrapper"><img src="img/wedka3_mini.jpg" class="mini" alt="Wędka 3"></div>
+            </div>
+        </section>
+
+        <section id="wyprawy">
+            <h2 class="title">Galeria wypraw rybackich</h2>
+            <div class="gallery">
+                <div class="img_wrapper"><img src="img/wyprawa1_mini.jpg" class="mini" alt="Wyprawa 1"></div>
+                <div class="img_wrapper"><img src="img/wyprawa2_mini.jpg" class="mini" alt="Wyprawa 2"></div>
+                <div class="img_wrapper"><img src="img/wyprawa3_mini.jpg" class="mini" alt="Wyprawa 3"></div>
+                <div class="img_wrapper"><img src="img/wyprawa4_mini.jpg" class="mini" alt="Wyprawa 4"></div>
+                <div class="img_wrapper"><img src="img/wyprawa5_mini.jpg" class="mini" alt="Wyprawa 5"></div>
+                <div class="img_wrapper"><img src="img/wyprawa6_mini.jpg" class="mini" alt="Wyprawa 6"></div>
+            </div>
+        </section>
+
+        <div id="imageMaxiBlock" class="maxiImageBlock">
+            <span class="close">&times;</span>
+            <img class="maxiImage" id="maxiImg" src="img/wedka2_mini.jpg" alt="Powiększone zdjęcie">
+            <div id="caption"></div>
+        </div>
+    </main>
+    <footer class="flexCenter">
+        <a href="https://pzw.pl/" target="_blank">Polski Związek Wędkarski</a>
+        <a href="https://sklepwedkarski.pl/" target="_blank">Sklep wędkarski</a>
+        <p>
+            Strona wykonana dla projektów z przedmiotów: HiH i WAI przez<br>
+            Oleh'a Radchenko (211352)
+        </p>
+    </footer>
+
+    <script>
+        const imageMaxBlock = document.getElementById("imageMaxiBlock");
+        const maxiImg = document.getElementById("maxiImg");
+        const captionText = document.getElementById("caption");
+        const closeBtn = document.querySelector(".close");
+
+        document.querySelectorAll(".mini").forEach(img => {
+            img.addEventListener("click", () => {
+            imageMaxBlock.style.display = "block";
+            maxiImg.src = img.src.replace("_mini", "");
+            captionText.textContent = img.alt;
+            maxiImg.alt = img.alt;
+            });
+        });
+
+        closeBtn.addEventListener("click", () => {
+            imageMaxBlock.style.display = "none";
+        });
+
+        imageMaxBlock.addEventListener("click", (e) => {
+            if (e.target === imageMaxBlock) imageMaxBlock.style.display = "none";
+        });
+    </script>
+</body>
+</html>

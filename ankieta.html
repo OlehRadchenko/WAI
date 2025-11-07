@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="survey_style.css">
+    <title>Ankieta</title>
+</head>
+<body>
+    <header class="flexCenter">
+        <a class="flexCenter links" href="index.html">
+            <svg id="logoSVG" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;">
+                <ellipse cx="100" cy="50" rx="60" ry="30" fill="lightblue" stroke="navy" stroke-width="2"/>
+                <polygon points="160,20 200,50 160,80" fill="lightblue" stroke="navy" stroke-width="2"/>
+                <circle cx="60" cy="45" r="5" fill="white" stroke="black" stroke-width="1"/>
+                <circle cx="60" cy="45" r="2" fill="black"/>
+            </svg>
+            <span id="logo">WĘDKARTSWO Z PASJĄ</span>
+        </a>
+    </header>
+    <nav class="flexCenter">
+        <a class="navLinks links" href="index.html">
+            <p class="navButton flexCenter">
+                Strona główna
+            </p>
+        </a>
+        <a class="navLinks links" href="polowy.html">
+            <p class="navButton flexCenter">
+                Moje połowy
+            </p>
+        </a>
+        <a class="navLinks links actualPage" href="ankieta.html">
+            <p class="navButton flexCenter">
+                Ankieta
+            </p>
+        </a>
+        <div id="galeriaButton" class="navLinks">
+            <a class="navButton flexCenter links" href="galeria.html">
+                Galeria
+            </a>
+            <ul class="dropdown-content">
+                <li><a class="dropdownLink smallNavButton" href="galeria.html#zlowione_ryby">Złowione ryby</a></li>
+                <li><a class="dropdownLink smallNavButton" href="galeria.html#moje_wedki">Moje wędki</a></li>
+                <li><a class="dropdownLink smallNavButton" href="galeria.html#wyprawy">Wyprawy</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <h1 class="title">Ankieta o preferencjach wędkarskich</h1>
+        <form action="ankieta.php" method="post">
+            <fieldset>
+                <legend>Dane wędkarza</legend>
+                <label for="imie">Imię:</label>
+                <input type="text" id="imie" name="imie" required>
+                <label for="nazwisko">Nazwisko:</label>
+                <input type="text" id="nazwisko" name="nazwisko" required>
+                <label for="email">Adres e-mail:</label>
+                <input type="email" id="email" name="email" placeholder="przyklad@poczta.pl" required>
+            </fieldset>
+
+            <fieldset class="radio-group">
+                <legend>Ulubiony gatunek ryby</legend>
+                <label><input type="radio" name="gatunek" value="szczupak" required> Szczupak</label>
+                <label><input type="radio" name="gatunek" value="okoń"> Okoń</label>
+                <label><input type="radio" name="gatunek" value="karp"> Karp</label>
+                <label><input type="radio" name="gatunek" value="sandacz"> Sandacz</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Ulubiony rodzaj łowiska</legend>
+                <label for="lowisko">Wybierz rodzaj:</label>
+                <select id="lowisko" name="lowisko" required>
+                    <option value="">-- wybierz --</option>
+                    <option value="jezioro">Jezioro</option>
+                    <option value="rzeka">Rzeka</option>
+                    <option value="staw">Staw prywatny</option>
+                    <option value="morze">Morze</option>
+                    <option value="ocean">Ocean</option>
+                </select>
+            </fieldset>
+
+            <fieldset class="checkbox-group">
+                <legend>Posiadany sprzęt</legend>
+                <label><input type="checkbox" name="sprzet" value="wedka"> Wędka</label>
+                <label><input type="checkbox" name="sprzet" value="kolowrotek"> Kołowrotek</label>
+                <label><input type="checkbox" name="sprzet" value="siatka"> Siatka</label>
+                <label><input type="checkbox" name="sprzet" value="przynety"> Przynęty</label>
+                <label><input type="checkbox" name="sprzet" value="echosonda"> Echosonda</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Komentarz ogólny</legend>
+                <label for="komentarz">Twoje uwagi:</label><br>
+                <textarea id="komentarz" name="komentarz" rows="4" cols="50" placeholder="Podziel się swoją opinią..."></textarea>
+            </fieldset>
+            
+            <fieldset>
+                <legend>Data ostatniego połowu</legend>
+                <label for="dataPolowu">Wybierz datę:</label>
+                <input type="date" id="dataPolowu" name="dataPolowu">
+            </fieldset>
+            
+            <div class="form-buttons">
+                <button type="reset">Wyczyść</button>
+                <button type="submit">Wyślij</button>
+            </div>
+        </form>
+    </main>
+    <footer class="flexCenter">
+        <a href="https://pzw.pl/" target="_blank">Polski Związek Wędkarski</a>
+        <a href="https://sklepwedkarski.pl/" target="_blank">Sklep wędkarski</a>
+        <p>
+            Strona wykonana dla projektów z przedmiotów: HiH i WAI przez<br>
+            Oleh'a Radchenko (211352)
+        </p>
+    </footer>
+</body>
+</html>

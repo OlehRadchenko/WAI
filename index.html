@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main_style.css">
+    <title>Wędkarstwo</title>
+</head>
+<body>
+    <header class="flexCenter">
+        <a class="flexCenter links" href="index.html">
+            <svg id="logoSVG" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;">
+                <ellipse cx="100" cy="50" rx="60" ry="30" fill="lightblue" stroke="navy" stroke-width="2"/>
+                <polygon points="160,20 200,50 160,80" fill="lightblue" stroke="navy" stroke-width="2"/>
+                <circle cx="60" cy="45" r="5" fill="white" stroke="black" stroke-width="1"/>
+                <circle cx="60" cy="45" r="2" fill="black"/>
+            </svg>
+            <span id="logo">WĘDKARTSWO Z PASJĄ</span>
+        </a>
+    </header>
+    <nav class="flexCenter">
+        <a class="navLinks links actualPage" href="index.html">
+            <p class="navButton flexCenter">
+                Strona główna
+            </p>
+        </a>
+        <a class="navLinks links" href="polowy.html">
+            <p class="navButton flexCenter">
+                Moje połowy
+            </p>
+        </a>
+        <a class="navLinks links" href="ankieta.html">
+            <p class="navButton flexCenter">
+                Ankieta
+            </p>
+        </a>
+        <div id="galeriaButton" class="navLinks">
+            <a class="navButton flexCenter links" href="galeria.html">
+                Galeria
+            </a>
+            <ul class="dropdown-content">
+                <li><a class="dropdownLink smallNavButton" href="galeria.html#zlowione_ryby">Złowione ryby</a></li>
+                <li><a class="dropdownLink smallNavButton" href="galeria.html#moje_wedki">Moje wędki</a></li>
+                <li><a class="dropdownLink smallNavButton" href="galeria.html#wyprawy">Wyprawy</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <section id="ochronaRyb">
+            <h1 class="title">Ochrona ryb w Polsce – co każdy wędkarz powinien wiedzieć</h1>
+
+            <nav id="spisTresci">
+                <h3>Spis treści:</h3>
+                <ul>
+                <li><a href="#dlaczego">Dlaczego okresy ochronne są ważne?</a></li>
+                <li><a href="#okresy">Okresy ochronne i wymiary ryb</a></li>
+                <li><a href="#kontrola">Jak sprawdzić aktualne przepisy?</a></li>
+                <li><a href="#etyka">Etyka i odpowiedzialne wędkarstwo</a></li>
+                <li><a href="#tabela">Tabela gatunków i okresów ochronnych</a></li>
+                </ul>
+            </nav>
+
+            <article id="dlaczego">
+                <h2>Dlaczego okresy ochronne są ważne?</h2>
+                <p>
+                Okresy ochronne ryb zostały wprowadzone, aby chronić populacje podczas ich tarła oraz umożliwić im bezpieczne rozmnażanie. 
+                Dzięki temu wędkarze mogą cieszyć się bogactwem gatunków w przyszłości. 
+                W Polsce regulacje te są ściśle określone przez <strong>Regulamin Amatorskiego Połowu Ryb (RAPR)</strong>.
+                </p>
+            </article>
+
+            <article id="okresy">
+                <h2>Okresy ochronne i wymiary ryb</h2>
+                <p>
+                Każdy gatunek ryby ma inny okres ochronny oraz minimalny wymiar, który pozwala na jej zabranie. 
+                Przykładowo, <em>szczupak</em> jest chroniony od 1 stycznia do 30 kwietnia, a jego minimalny wymiar ochronny to 50 cm. 
+                Warto zapoznać się z pełną tabelą gatunków, aby unikać naruszenia przepisów.
+                </p>
+            </article>
+
+            <article id="kontrola">
+                <h2>Jak sprawdzić aktualne przepisy?</h2>
+                <p>
+                Najpewniejszym źródłem informacji są strony <a href="https://www.pzw.org.pl" target="_blank">Polskiego Związku Wędkarskiego (PZW)</a>, 
+                gdzie publikowane są aktualne wersje RAPR oraz komunikaty dotyczące zmian w poszczególnych okręgach. 
+                Warto też mieć przy sobie papierowy lub elektroniczny regulamin podczas wyprawy.
+                </p>
+            </article>
+
+            <article id="etyka">
+                <h2>Etyka i odpowiedzialne wędkarstwo</h2>
+                <p>
+                Wędkarstwo to nie tylko sport czy pasja, ale także odpowiedzialność za przyrodę. 
+                Szanuj złowione ryby, wypuszczaj okazy w okresie ochronnym oraz nie zostawiaj śmieci nad wodą. 
+                Pamiętaj, że to od nas zależy, jakie ryby będą łowić kolejne pokolenia.
+                </p>
+            </article>
+
+            <article id="tabela">
+                <h2>Tabela gatunków i okresów ochronnych</h2>
+                <p>Sprawdź szczegółowe informacje o najpopularniejszych gatunkach ryb w Polsce:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Gatunek</th>
+                            <th>Okres ochronny</th>
+                            <th>Wymiar ochronny</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Szczupak</td>
+                            <td>1 stycznia – 30 kwietnia</td>
+                            <td>50 cm</td>
+                        </tr>
+                        <tr>
+                            <td>Sandacz</td>
+                            <td>1 stycznia – 31 maja</td>
+                            <td>50 cm</td>
+                        </tr>
+                        <tr>
+                            <td>Boleń</td>
+                            <td>1 stycznia – 30 kwietnia</td>
+                            <td>40 cm</td>
+                        </tr>
+                        <tr>
+                            <td>Sum</td>
+                            <td>1 listopada – 30 czerwca</td>
+                            <td>70 cm</td>
+                        </tr>
+                        <tr>
+                            <td>Węgorz</td>
+                            <td>1 grudnia – 31 marca</td>
+                            <td>50 cm</td>
+                        </tr>
+                        <tr>
+                            <td>Okoń</td>
+                            <td>Brak ogólnego okresu ochronnego</td>
+                            <td>Brak(chyba że okręg ustali inaczej)</td>
+                        </tr>
+                        <tr>
+                            <td>Pstrąg potokowy</td>
+                            <td>1 września – 31 stycznia</td>
+                            <td>30 cm</td>
+                        </tr>
+                        <tr>
+                            <td>Lipień</td>
+                            <td>1 marca – 31 maja</td>
+                            <td>30 cm</td>
+                        </tr>
+                        <tr>
+                            <td>Sielawa</td>
+                            <td>15 października – 31 grudnia</td>
+                            <td>18 cm</td>
+                        </tr>
+                        <tr>
+                            <td>Płoć</td>
+                            <td>Brak ogólnego okresu ochronnego</td>
+                            <td>Brak wymiaru ochronnego</td>
+                        </tr>
+                        <tr>
+                            <td>Leszcz</td>
+                            <td>Brak ogólnego okresu ochronnego</td>
+                            <td>Brak wymiaru ochronnego</td>
+                        </tr>
+                        <tr>
+                            <td>Lin</td>
+                            <td>1 marca – 31 maja</td>
+                            <td>25 cm</td>
+                        </tr>
+                        <tr>
+                            <td>Karp</td>
+                            <td>Brak ogólnego okresu ochronnego</td>
+                            <td>30 cm</td>
+                        </tr>
+                        <tr>
+                            <td>Jaź</td>
+                            <td>1 marca – 31 maja</td>
+                            <td>25 cm</td>
+                        </tr>
+                        <tr>
+                            <td>Brzana</td>
+                            <td>1 stycznia – 30 czerwca</td>
+                            <td>40 cm</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+        </section>
+    </main>
+    <footer class="flexCenter">
+        <a href="https://pzw.pl/" target="_blank">Polski Związek Wędkarski</a>
+        <a href="https://sklepwedkarski.pl/" target="_blank">Sklep wędkarski</a>
+        <p>
+            Strona wykonana dla projektów z przedmiotów: HiH i WAI przez<br>
+            Oleh'a Radchenko (211352)
+        </p>
+    </footer>
+    <script type="module" src="./dist/main.js"></script>
+</body>
+</html>
