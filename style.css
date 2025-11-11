@@ -127,6 +127,18 @@ main{
     text-align: center;
 }
 
+.warning {
+    color: black;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgb(233, 136, 136);
+}
+
+.js-only {
+    display: none;
+}
+
 @media (max-width: 600px) {
     nav{
         flex-direction: column;

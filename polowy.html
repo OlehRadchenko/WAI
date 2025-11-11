@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="polowy.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    
     <title>Wpisz swoje połowy</title>
 </head>
 <body>
@@ -46,7 +49,34 @@
         </div>
     </nav>
     <main>
-        <!--FORMULARZ NA WAI-->
+        <noscript>
+            <p class="warning">Formularz zapisywania połowów wymaga WŁĄCZENIA JavaScript.</p>
+        </noscript>
+        <form id="catchForm" class="js-only">
+            <label for="title">Tytuł połowu:</label>
+            <input type="text" id="title" placeholder="np. Wielki szczupak z Mazur" required>
+
+            <label for="dataPolowu">Data połowu:</label>
+            <input type="text" id="dataPolowu" reaquired>
+
+            Waga ryby:
+            <div id="wagaRyby"></div>
+            <div id="wagaRybyValue">1 kg</div>
+
+            <label for="description">Opis:</label>
+            <textarea id="description" placeholder="Jak wyglądał Twój połów?(Opisz pogodę, ile ryb złowiłeś)" required></textarea>
+
+            <label for="photo">Zdjęcie z połowu:</label>
+            <input type="file" id="photo" accept="image/*">
+
+            Ocena połowu:
+            <div id="emojiRating"></div>
+            <input type="hidden" id="rating" name="rating">
+
+            <button type="submit">Zapisz połów</button>
+        </form>
+
+        <div class="polowy" id="polowy"></div>
     </main>
     <footer class="flexCenter">
         <a href="https://pzw.pl/" target="_blank">Polski Związek Wędkarski</a>
@@ -55,6 +85,107 @@
             Strona wykonana dla projektów z przedmiotów: HiH i WAI przez<br>
             Oleh'a Radchenko (211352)
         </p>
-    </footer>
+    </footer>   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script src="dist/emoji.min.js"></script>
+    <script>
+        $(function() {
+            document.querySelectorAll(".js-only").forEach(element => {
+                element.style.display = "flex";
+            });
+            $("#dataPolowu").datepicker({
+                dateFormat: "dd-mm-yy"
+            });
+            $("#wagaRyby").slider({
+                range: "min",
+                value: 1,
+                min: 0.5,
+                max: 50,
+                step:0.1,
+                slide: function(event, ui) {
+                    $("#wagaRybyValue").text(ui.value + " kg");
+                }
+            });
+            $("#emojiRating").emoji({
+                width: '32px',
+                value: 0,
+                emojis: ['&#x1F620;','&#x1F61E;','&#x1F610;','&#x1F60A;','&#x1F603;'],
+                callback: function(event, value) {
+                    $("#rating").val(value);
+                }
+            });
+        
+            if (!localStorage.getItem("user")) {
+                const exampleUser = {
+                    nick: "RyboŁapek99",
+                    avatar: "https://cdn-icons-png.flaticon.com/512/616/616408.png"
+                };
+                localStorage.setItem("user", JSON.stringify(exampleUser));
+            }
+
+            const form = document.getElementById('catchForm');
+            const polowyDiv = document.getElementById('polowy');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const title = document.getElementById('title').value.trim();
+                const description = document.getElementById('description').value.trim();
+                const dataPolowu = document.getElementById('dataPolowu').value.trim();
+                const rating = document.getElementById('rating').value;
+                const wagaRyby = document.getElementById("wagaRybyValue").textContent;
+                const photoInput = document.getElementById('photo');
+
+                const reader = new FileReader();
+
+                if (photoInput.files[0]) {
+                    reader.readAsDataURL(photoInput.files[0]);
+                }
+                else {
+                    const newPolow = { title, description, wagaRyby, photoData: null, date: new Date().toLocaleString(), dataPolowu, rating };
+                    const polowy = JSON.parse(localStorage.getItem('polowy') || '[]');
+                    polowy.push(newPolow);
+                    localStorage.setItem('polowy', JSON.stringify(polowy));
+                    form.reset();
+                    displayEntries();
+                }
+                reader.onerror = () => alert("Nie udało się wczytać pliku!");
+                reader.onload = function() {
+                        const photoData = reader.result;
+                        const newPolow = { title, description, wagaRyby, photoData, date: new Date().toLocaleString(), dataPolowu, rating };
+                        const polowy = JSON.parse(localStorage.getItem('polowy') || '[]');
+                        polowy.push(newPolow);
+                        localStorage.setItem('polowy', JSON.stringify(polowy));
+                        form.reset();
+                        displayEntries();
+                };
+            });
+
+            function displayEntries() {
+                const user = JSON.parse(localStorage.getItem('user'));
+                const polowy = JSON.parse(localStorage.getItem('polowy') || '[]');
+                polowyDiv.innerHTML = "";
+
+                polowy.reverse().forEach(polow => {
+                    const div = document.createElement('div');
+                    div.classList.add('polow');
+                    div.innerHTML = `
+                    <img src="${user.avatar}" alt="avatar" class="profile-pic">
+                    <div class="polow-content">
+                        <div class="nickname">${user.nick} złowił rybę o wadze ${polow.wagaRyby}${polow.rating > 0 ? ` - Ocena połowu: ${polow.rating}` : ""}</div>
+                        <div class="date">data opisu połowu: ${polow.date}${polow.dataPolowu ? `, data połowu: ${polow.dataPolowu}` : ""}</div>
+                        <h3>${polow.title}</h3>
+                        <p>${polow.description}</p>
+                        ${polow.photoData ? `<img src="${polow.photoData}" class="catch-img">` : ""}
+                    </div>
+                    `;
+                    polowyDiv.appendChild(div);
+                });
+            }
+
+            displayEntries();
+        });
+    </script>
 </body>
 </html>

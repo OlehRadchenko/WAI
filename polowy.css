@@ -1,0 +1,97 @@
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+main {
+    max-width: 70vw;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 25px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input[type="text"],
+textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 100%;
+    font-size: 15px;
+}
+
+input[type="file"] {
+    font-size: 14px;
+}
+
+textarea {
+    resize: none;
+    height: 90px;
+}
+
+button {
+    background-color: #00bfa5;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #009688;
+}
+
+.polowy {
+    margin-top: 40px;
+}
+
+.polow {
+    background: #e0f7fa;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+.profile-pic {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #00bfa5;
+}
+
+.polow-content {
+    flex: 1;
+}
+
+.nickname {
+    font-weight: bold;
+    color: #00695c;
+    font-size: 17px;
+}
+
+.catch-img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    margin-top: 10px;
+    object-fit: cover;
+}
+
+#wagaRyby {
+    overflow: hidden;
+}
