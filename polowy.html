@@ -89,9 +89,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
     <script src="dist/emoji.min.js"></script>
+    <script type="module" src="dist/polowy.js"></script>
     <script>
         $(function() {
-            document.querySelectorAll(".js-only").forEach(element => {
+            /*document.querySelectorAll(".js-only").forEach(element => {
                 element.style.display = "flex";
             });
             $("#dataPolowu").datepicker({
@@ -114,7 +115,7 @@
                 callback: function(event, value) {
                     $("#rating").val(value);
                 }
-            });
+            });*/
         
             if (!localStorage.getItem("user")) {
                 const exampleUser = {
