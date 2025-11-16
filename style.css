@@ -89,7 +89,7 @@ header, a{
 
 footer{
     display: flex;
-    height: 8.7vh;
+    height: 13vh;
     align-items: flex-end;
     flex-direction: column;
     background-color: rgb(194, 224, 250);
@@ -97,11 +97,11 @@ footer{
 }
 
 footer p, footer a{
-    font-size: clamp(7px, 0.5vw, 15px);
+    font-size: clamp(10px, 0.75vw, 20px);
 }
 
 footer p::first-letter{
-    font-size: clamp(10px, 1vw, 20px);
+    font-size: clamp(15px, 1vw, 30px);
 }
 
 footer p::first-line{
