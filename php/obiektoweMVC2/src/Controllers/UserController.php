@@ -16,11 +16,40 @@ class UserController extends Controller {
             if ($db->users->findOne(['login' => $login])) {
                 $this->render('register_view', ['error' => 'Login zajęty']); return;
             }
+            if ($db->users->findOne(['email' => $email])) {
+                $this->render('register_view', ['error' => 'Email jest już przypisany do innego użytkownika']); return;
+            }
+
+            $profilePhotoName = 'default.png';
+
+            if (isset($_FILES['profile_image']) && $_FILES['profile_image']['error'] === UPLOAD_ERR_OK) {
+                $file = $_FILES['profile_image'];
+                $allowed = ['image/jpeg', 'image/png', 'image/pjpeg', 'image/jpg'];
+                
+                $finfo = new \finfo(FILEINFO_MIME_TYPE);
+                $mime = $finfo->file($file['tmp_name']);
+                
+                if (in_array($mime, $allowed)) {
+                    $ext = ($mime === 'image/jpeg') ? '.jpg' : '.png';
+                    $profilePhotoName = 'profile_' . uniqid() . $ext;
+                    $destPath = __DIR__ . '/../../ProfilesFoto/' . $profilePhotoName;
+
+                    $this->createThumbnail($file['tmp_name'], $destPath, $mime, 100, 100);
+                }
+            }elseif (isset($_FILES['profile_image']) && $_FILES['profile_image']['error'] !== UPLOAD_ERR_NO_FILE) {
+                $errorCode = $_FILES['profile_image']['error'];
+                $msg = "Błąd przesyłania pliku (kod: $errorCode). Sprawdź rozmiar zdjęcia.";
+                if ($errorCode == UPLOAD_ERR_INI_SIZE) $msg = "Plik przekracza limit serwera (upload_max_filesize).";
+                
+                $this->render('register_view', ['error' => $msg]);
+                return;
+            }
 
             $db->users->insertOne([
                 'email' => $email,
                 'login' => $login,
-                'password' => password_hash($pass, PASSWORD_DEFAULT) // [cite: 69]
+                'password' => password_hash($pass, PASSWORD_DEFAULT),
+                'profile_photo' => $profilePhotoName
             ]);
             $this->redirect('login');
         }
@@ -34,13 +63,16 @@ class UserController extends Controller {
 
             if ($user && password_verify($_POST['password'], $user['password'])) {
                 $_SESSION['user_id'] = (string)$user['_id'];
-                $_SESSION['user_login'] = $user['login']; // [cite: 74]
+                $_SESSION['user_login'] = $user['login'];
+                $_SESSION['profile_photo_path'] = '../ProfilesFoto/' . $user['profile_photo'];
                 $this->redirect('/');
             } else {
                 $this->render('login_view', ['error' => 'Błędne dane']);
             }
-        } else {
+        } else if(!isset($_SESSION['user_id'])) {
             $this->render('login_view');
+        } else {
+            $this->redirect('/');
         }
     }
 

@@ -24,7 +24,39 @@ a:hover {
 }
 
 /* Nawigacja */
+.user-panel {
+    float: right;
+    display: flex;           /* Używamy Flexboxa do idealnego wyrównania */
+    align-items: center;     /* Wyśrodkuj tekst i obrazek w pionie */
+    gap: 10px;               /* Odstępy między elementami */
+}
+
+/* Stylizacja awatara */
+.user-avatar {
+    width: 35px;             /* Trochę większy niż 20px, żeby było coś widać */
+    height: 35px;
+    border-radius: 50%;      /* Robi kółko */
+    object-fit: cover;       /* Zapobiega rozciąganiu zdjęcia, przycina nadmiar */
+    border: 2px solid #ddd;  /* Delikatna ramka */
+    vertical-align: middle;
+    transition: transform 0.2s;
+}
+
+/* Efekt po najechaniu myszką */
+.user-avatar:hover {
+    transform: scale(1.1);   /* Lekkie powiększenie */
+    border-color: #007bff;   /* Zmiana koloru ramki */
+}
+
+/* Poprawa wyglądu linków w nawigacji */
 nav {
+    overflow: hidden; /* Naprawia problemy z float */
+    padding: 10px 20px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    line-height: 35px; /* Wyrównanie wysokości linii do obrazka */
+}
+/*nav {
     background-color: #fff;
     padding: 15px;
     border-radius: 5px;
@@ -33,7 +65,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+}*/
 
 nav a {
     margin-right: 20px;
@@ -87,13 +119,28 @@ nav a:hover {
 }
 
 /* Formularze */
-form {
+form, .results {
     background: #fff;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     max-width: 500px;
     margin: 0 auto; /* Wyśrodkowanie */
+}
+
+.gallery {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    min-width: 33vw;
+    margin: 0 auto; /* Wyśrodkowanie */
+}
+
+div.images{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 input[type="text"],

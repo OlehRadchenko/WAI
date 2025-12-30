@@ -17,4 +17,20 @@ abstract class Controller {
         header("Location: index.php?action=" . $url);
         exit;
     }
+
+    protected function createThumbnail($src, $dest, $mime, $width, $height) {
+        $img = ($mime === 'image/jpeg') ? imagecreatefromjpeg($src) : imagecreatefrompng($src);
+        $currWidth = imagesx($img);
+        $currHeight = imagesy($img);
+        
+        $thumb = imagecreatetruecolor($width, $height);
+        
+        // Skalowanie
+        imagecopyresampled($thumb, $img, 0, 0, 0, 0, $width, $height, $currWidth, $currHeight);
+        
+        ($mime === 'image/jpeg') ? imagejpeg($thumb, $dest) : imagepng($thumb, $dest);
+        
+        imagedestroy($thumb);
+        imagedestroy($img);
+    }
 }
