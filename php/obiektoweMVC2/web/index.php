@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 
-// Autoloader klas z folderu src/
 spl_autoload_register(function ($class) {
     $prefix = 'Src\\';
     $base_dir = __DIR__ . '/../src/';
@@ -16,7 +15,6 @@ session_start();
 
 use Src\Dispatcher;
 
-// Odczyt akcji z parametru GET
 $action = $_GET['action'] ?? '/';
 
 $app = new Dispatcher();

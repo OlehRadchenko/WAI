@@ -8,15 +8,14 @@ class Dispatcher {
         '/register'     => ['UserController', 'register'],
         '/login'        => ['UserController', 'login'],
         '/logout'       => ['UserController', 'logout'],
-        '/cart/add'     => ['GalleryController', 'addToCart'],     // Checkbox "zapamiętaj"
-        '/cart/clear'   => ['GalleryController', 'clearCart'],     // Usuwanie sesji
-        '/selected'     => ['GalleryController', 'showSelected'],  // Widok zapamiętanych
-        '/search'       => ['GalleryController', 'search']         // AJAX
+        '/cart/add'     => ['GalleryController', 'addToCart'],
+        '/cart/clear'   => ['GalleryController', 'clearCart'],
+        '/selected'     => ['GalleryController', 'showSelected'],
+        '/search'       => ['GalleryController', 'search']
     ];
 
     public function dispatch($action_url) {
         $action_url = '/' . ltrim($action_url, '/');
-        // Usuń parametry GET z URL-a (np. ?page=2) dla routingu
         $url_parts = explode('?', $action_url);
         $path = $url_parts[0];
 

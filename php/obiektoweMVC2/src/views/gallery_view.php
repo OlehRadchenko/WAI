@@ -11,23 +11,24 @@
                 </a>
                 <p>Title: <?= htmlspecialchars($img['title']) ?></p>
                 <p>Author: <?= htmlspecialchars($img['author']) ?></p>
-                <?php if(isset($img['access']) && $img['access'] == 'private') echo "<small style='color:red'>Prywatne</small><br>"; ?>
-                
+                <?php if(isset($img['access']) && $img['access'] == 'private') echo "<small style='color:red'>Prywatne</small>"; ?>
+                <label>Wpisz ilość odbitek: </label>
+                <input type="number" name="amounts[<?= $img['_id'] ?>]" value="<?php echo $_SESSION['cart'][(string)$img['_id']] ?? 1; ?>" min="1" style="width: 60px;"><br>
                 <label>
                     <input type="checkbox" name="selected_ids[]" value="<?= $img['_id'] ?>" 
-                    <?= (in_array((string)$img['_id'], $_SESSION['cart'] ?? [])) ? 'checked' : '' ?>>
+                    <?= (array_key_exists((string)$img['_id'], $_SESSION['cart'] ?? [])) ? 'checked' : '' ?>>
                     Wybierz
                 </label>
             </div>
         <?php endforeach; ?>
     </div>
     
-    <div style="margin-top: 20px;">
+    <div class="margin">
         <button type="submit">Zapamiętaj wybrane</button>
     </div>
 </form>
 
-<div style="margin-top: 20px;">
+<div class="margin">
     Strona: 
     <?php for($i=1; $i<=$pages; $i++): ?>
         <a href="index.php?action=/&page=<?= $i ?>" style="<?= ($i==$page)?'font-weight:bold':'' ?>"><?= $i ?></a>

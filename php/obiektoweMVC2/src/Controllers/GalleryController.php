@@ -74,14 +74,14 @@ class GalleryController extends Controller {
             $this->render('upload_view');
         }
     }
-    
+
     public function addToCart() {
         if (!isset($_SESSION['cart'])) $_SESSION['cart'] = [];
         
         if (isset($_POST['selected_ids']) && is_array($_POST['selected_ids'])) {
             foreach ($_POST['selected_ids'] as $id) {
-                if (!in_array($id, $_SESSION['cart'])) {
-                    $_SESSION['cart'][] = $id;
+                if($_POST['amounts'][$id] != '' && is_numeric($_POST['amounts'][$id]) && $_POST['amounts'][$id] > 0){
+                    $_SESSION['cart'][$id] = $_POST['amounts'][$id] ?? 1;
                 }
             }
         }
@@ -92,8 +92,7 @@ class GalleryController extends Controller {
         $db = Database::getInstance();
         $images = [];
         if (!empty($_SESSION['cart'])) {
-            $cartIds = array_values($_SESSION['cart']);
-            // Zamiana stringów ID na ObjectId dla MongoDB
+            $cartIds = array_keys($_SESSION['cart']);
             $ids = array_map(function($id) { 
                 return new \MongoDB\BSON\ObjectId($id); 
             }, $cartIds);
@@ -104,7 +103,9 @@ class GalleryController extends Controller {
 
     public function clearCart() {
         if (isset($_POST['remove_ids']) && is_array($_POST['remove_ids'])) {
-            $_SESSION['cart'] = array_diff($_SESSION['cart'], $_POST['remove_ids']);
+            foreach ($_POST['remove_ids'] as $id) {
+                unset($_SESSION['cart'][$id]);
+            }
         }
         $this->redirect('selected');
     }
@@ -116,6 +117,10 @@ class GalleryController extends Controller {
             'title' => ['$regex' => $q, '$options' => 'i'],
             'access' => 'public'
         ])->toArray();
-        $this->render('search_view', ['images' => $images]);
+        if ($this->is_ajax()) {
+            $this->render('partial/search_results', ['images' => $images]);
+        } else {
+            $this->render('search_view', ['images' => $images]);
+        }
     }
 }

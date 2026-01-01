@@ -1,4 +1,3 @@
-/* Ogólne */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f4f4;
@@ -23,49 +22,39 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Nawigacja */
 .user-panel {
     float: right;
-    display: flex;           /* Używamy Flexboxa do idealnego wyrównania */
-    align-items: center;     /* Wyśrodkuj tekst i obrazek w pionie */
-    gap: 10px;               /* Odstępy między elementami */
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-/* Stylizacja awatara */
 .user-avatar {
-    width: 35px;             /* Trochę większy niż 20px, żeby było coś widać */
+    width: 35px;
     height: 35px;
-    border-radius: 50%;      /* Robi kółko */
-    object-fit: cover;       /* Zapobiega rozciąganiu zdjęcia, przycina nadmiar */
-    border: 2px solid #ddd;  /* Delikatna ramka */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
     vertical-align: middle;
     transition: transform 0.2s;
 }
 
-/* Efekt po najechaniu myszką */
 .user-avatar:hover {
-    transform: scale(1.1);   /* Lekkie powiększenie */
-    border-color: #007bff;   /* Zmiana koloru ramki */
+    transform: scale(1.1);
+    border-color: #007bff;
 }
 
-/* Poprawa wyglądu linków w nawigacji */
 nav {
-    overflow: hidden; /* Naprawia problemy z float */
+    overflow: hidden;
     padding: 10px 20px;
     background: #fff;
     border-bottom: 1px solid #eee;
-    line-height: 35px; /* Wyrównanie wysokości linii do obrazka */
+    line-height: 35px;
 }
-/*nav {
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}*/
+
+.margin{
+    margin-top: 20px;
+}
 
 nav a {
     margin-right: 20px;
@@ -77,7 +66,6 @@ nav a:hover {
     color: #000;
 }
 
-/* Galeria i kafelki */
 .gallery-container {
     display: flex;
     flex-wrap: wrap;
@@ -118,14 +106,13 @@ nav a:hover {
     color: #888;
 }
 
-/* Formularze */
 form, .results {
     background: #fff;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     max-width: 500px;
-    margin: 0 auto; /* Wyśrodkowanie */
+    margin: 0 auto;
 }
 
 .gallery {
@@ -134,7 +121,7 @@ form, .results {
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     min-width: 33vw;
-    margin: 0 auto; /* Wyśrodkowanie */
+    margin: 0 auto;
 }
 
 div.images{
@@ -169,7 +156,6 @@ button:hover, input[type="submit"]:hover {
     background-color: #218838;
 }
 
-/* Paginacja */
 .pagination {
     margin-top: 20px;
     text-align: center;
@@ -191,7 +177,6 @@ button:hover, input[type="submit"]:hover {
     border-color: #007bff;
 }
 
-/* Inne */
 .error {
     color: #d9534f;
     background-color: #f2dede;

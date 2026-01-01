@@ -13,7 +13,6 @@ abstract class Controller {
     }
 
     protected function redirect($url) {
-        // Obsługa przekierowań wewnętrznych
         header("Location: index.php?action=" . $url);
         exit;
     }
@@ -25,12 +24,15 @@ abstract class Controller {
         
         $thumb = imagecreatetruecolor($width, $height);
         
-        // Skalowanie
         imagecopyresampled($thumb, $img, 0, 0, 0, 0, $width, $height, $currWidth, $currHeight);
         
         ($mime === 'image/jpeg') ? imagejpeg($thumb, $dest) : imagepng($thumb, $dest);
         
         imagedestroy($thumb);
         imagedestroy($img);
+    }
+
+    protected function is_ajax() {
+        return !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
     }
 }

@@ -13,7 +13,7 @@
 <nav>
     <a href="index.php?action=/">Galeria</a>
     <a href="index.php?action=upload">Dodaj zdjęcie</a>
-    <a href="index.php?action=selected">Zapamiętane (<?= count($_SESSION['cart'] ?? []) ?>)</a>
+    <?php include __DIR__ . '/../partial/cart_stats.php'; ?>
     <a href="index.php?action=search">Szukaj</a>
     
     <?php if (isset($_SESSION['user_id'])): ?>

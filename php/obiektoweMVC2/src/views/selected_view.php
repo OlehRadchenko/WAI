@@ -6,17 +6,28 @@
     <?php else: ?>
         <div class="images">
             <?php foreach ($images as $img): ?>
+                <?php 
+                    $idStr = (string)$img['_id'];
+                    $amount = $_SESSION['cart'][$idStr] ?? 0;
+                ?>
                 <div class="gallery-item">
-                    <img src="../thumbnails/<?= $img['name'] ?>" alt="Thumb of <?= $img['name'] ?>">
-                    <h2><?= htmlspecialchars($img['title']) ?></h2>
-                    <p><?= htmlspecialchars($img['author']) ?></p>
-                    <label><input type="checkbox" name="remove_ids[]" value="<?= $img['_id'] ?>"> Usuń</label>
+                    <img src="../thumbnails/<?= $img['name'] ?>" alt="Thumb">
+                    
+                    <h3><?= htmlspecialchars($img['title']) ?></h3>
+                    <p>Autor: <?= htmlspecialchars($img['author']) ?></p>
+                    <?php if(isset($img['access']) && $img['access'] == 'private') echo "<small style='color:red'>Prywatne</small>"; ?>
+                    <p><strong>Ilość odbitek: <?= $amount ?></strong></p>
+                    
+                    <label>
+                        <input type="checkbox" name="remove_ids[]" value="<?= $idStr ?>"> 
+                        Usuń
+                    </label>
                 </div>
             <?php endforeach; ?>
-            <br>
         </div>
-        <div style="margin-top: 20px;">
-                <button type="submit">Usuń zaznaczone</button>
+        
+        <div class="margin">
+            <button type="submit" name="delete">Usuń zaznaczone</button>
         </div>
     <?php endif; ?>
 </form>
