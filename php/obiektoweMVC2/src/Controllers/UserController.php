@@ -4,6 +4,10 @@ use Src\Database;
 
 class UserController extends Controller {
     public function register() {
+        if (isset($_SESSION['user_id'])) {
+            $this->redirect('./');
+            return;
+        }
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = $_POST['email'];
             $login = $_POST['login'];
@@ -28,7 +32,7 @@ class UserController extends Controller {
                 
                 $finfo = new \finfo(FILEINFO_MIME_TYPE);
                 $mime = $finfo->file($file['tmp_name']);
-                
+
                 if (in_array($mime, $allowed)) {
                     $ext = ($mime === 'image/jpeg') ? '.jpg' : '.png';
                     $profilePhotoName = 'profile_' . uniqid() . $ext;
@@ -65,19 +69,19 @@ class UserController extends Controller {
                 $_SESSION['user_id'] = (string)$user['_id'];
                 $_SESSION['user_login'] = $user['login'];
                 $_SESSION['profile_photo_path'] = '../ProfilesFoto/' . $user['profile_photo'];
-                $this->redirect('/');
+                $this->redirect('./');
             } else {
                 $this->render('login_view', ['error' => 'Błędne dane']);
             }
         } else if(!isset($_SESSION['user_id'])) {
             $this->render('login_view');
         } else {
-            $this->redirect('/');
+            $this->redirect('./');
         }
     }
 
     public function logout() {
         session_destroy();
-        $this->redirect('/');
+        $this->redirect('./');
     }
 }

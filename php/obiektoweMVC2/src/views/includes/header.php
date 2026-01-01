@@ -11,10 +11,10 @@
 </head>
 <body>
 <nav>
-    <a href="index.php?action=/">Galeria</a>
-    <a href="index.php?action=upload">Dodaj zdjęcie</a>
+    <a href="./">Galeria</a>
+    <a href="upload">Dodaj zdjęcie</a>
     <?php include __DIR__ . '/../partial/cart_stats.php'; ?>
-    <a href="index.php?action=search">Szukaj</a>
+    <a href="search">Szukaj</a>
     
     <?php if (isset($_SESSION['user_id'])): ?>
         <div class="user-panel">
@@ -22,12 +22,12 @@
             
             <img src="<?= $_SESSION['profile_photo_path'] ?>" alt="Zdjęcie profilowe użytkownika <?= $_SESSION['user_login'] ?>" class="user-avatar"/>
             
-            <a href="index.php?action=logout" style="margin-left: 5px;">Wyloguj</a>
+            <a href="logout" style="margin-left: 5px;">Wyloguj</a>
         </div>
     <?php else: ?>
         <div class="user-panel">
-            <a href="index.php?action=login">Logowanie</a> | 
-            <a href="index.php?action=register">Rejestracja</a>
+            <a href="login">Logowanie</a> | 
+            <a href="register">Rejestracja</a>
         </div>
     <?php endif; ?>
 </nav>

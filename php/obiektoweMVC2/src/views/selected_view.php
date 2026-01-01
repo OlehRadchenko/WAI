@@ -1,6 +1,6 @@
 <?php include 'includes/header.php'; ?>
 <h2>Zapamiętane zdjęcia</h2>
-<form action="index.php?action=cart/clear" method="POST" class="gallery">
+<form action="cart/clear" method="POST" class="gallery">
     <?php if(empty($images)): ?>
         <p>Brak zapamiętanych zdjęć.</p>
     <?php else: ?>

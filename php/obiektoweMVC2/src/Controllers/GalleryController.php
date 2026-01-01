@@ -68,7 +68,7 @@ class GalleryController extends Controller {
                     'access' => $access
                 ]);
 
-                $this->redirect('/');
+                $this->redirect('./');
             }
         } else {
             $this->render('upload_view');
@@ -85,7 +85,7 @@ class GalleryController extends Controller {
                 }
             }
         }
-        $this->redirect('selected');
+        $this->redirect('../selected');
     }
 
     public function showSelected() {
@@ -107,16 +107,23 @@ class GalleryController extends Controller {
                 unset($_SESSION['cart'][$id]);
             }
         }
-        $this->redirect('selected');
+        $this->redirect('../selected');
     }
 
     public function search() {
         $q = $_POST['query'] ?? '';
         $db = Database::getInstance();
+        $orConditions = [['access' => 'public']];
+        
+        if (isset($_SESSION['user_id'])) {
+            $orConditions[] = ['author_id' => $_SESSION['user_id']];
+        }
+
         $images = $db->images->find([
             'title' => ['$regex' => $q, '$options' => 'i'],
-            'access' => 'public'
+            '$or' => $orConditions
         ])->toArray();
+
         if ($this->is_ajax()) {
             $this->render('partial/search_results', ['images' => $images]);
         } else {

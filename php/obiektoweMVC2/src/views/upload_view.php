@@ -2,7 +2,7 @@
 <h2>Dodaj zdjęcie</h2>
 <?php if(isset($error)) echo "<p class='error'>$error</p>"; ?>
 
-<form action="index.php?action=upload" method="POST" enctype="multipart/form-data">
+<form action="upload" method="POST" enctype="multipart/form-data">
     <input type="file" name="image" required><br><br>
     <input type="text" name="title" placeholder="Tytuł" required><br><br>
     

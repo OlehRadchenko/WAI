@@ -13,7 +13,7 @@ abstract class Controller {
     }
 
     protected function redirect($url) {
-        header("Location: index.php?action=" . $url);
+        header("Location: " . $url);
         exit;
     }
 

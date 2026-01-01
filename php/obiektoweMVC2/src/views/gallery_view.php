@@ -2,7 +2,7 @@
 
 <h2>Galeria Zdjęć</h2>
 <?php if(!empty($images)): ?>
-<form action="index.php?action=cart/add" method="POST" class="gallery">
+<form action="cart/add" method="POST" class="gallery">
     <div class="images">
         <?php foreach ($images as $img): ?>
             <div class="gallery-item">
@@ -31,7 +31,7 @@
 <div class="margin">
     Strona: 
     <?php for($i=1; $i<=$pages; $i++): ?>
-        <a href="index.php?action=/&page=<?= $i ?>" style="<?= ($i==$page)?'font-weight:bold':'' ?>"><?= $i ?></a>
+        <a href="./&page=<?= $i ?>" style="<?= ($i==$page)?'font-weight:bold':'' ?>"><?= $i ?></a>
     <?php endfor; ?>
 </div>
 <?php else: ?>
